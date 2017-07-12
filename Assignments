@@ -1,0 +1,32 @@
+package Doctors;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class SearchForDoc {
+
+	public static void main(String[] args) {
+		WebDriver driver = new FirefoxDriver();
+		driver.get("http://www.medinfi.com");
+		
+		driver.findElement(By.id("city-locality1")).sendKeys("AECS Layout, Bengaluru");
+		WebElement wb = driver.findElement(By.xpath("//input[@class='form-control']"));
+		Actions act = new Actions(driver);
+		act.click(wb).perform();
+		act.sendKeys(Keys.TAB).perform();
+		driver.findElement(By.id("ip1_text1")).sendKeys("shai");
+		WebElement wb1 = driver.findElement(By.xpath("//input[@class='form-control input2_search ']"));
+		Actions act1 = new Actions(driver);
+		act.click(wb1).perform();
+		
+		//String a = driver.findElement(By.id("city-locality1")).getText();
+		//System.out.println(a);
+	    //driver.findElement(By.id("ip1_text1")).sendKeys("shai",Keys.ENTER);
+
+	}
+
+}
